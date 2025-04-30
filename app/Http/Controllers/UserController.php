@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 // use Illuminate\Foundation\Auth\User;
@@ -23,7 +25,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {   
         $user = User::create([
 
@@ -60,7 +62,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserUpdateRequest $request, string $id)
     {
         $user = User::find($id);
 
@@ -71,6 +73,7 @@ class UserController extends Controller
             ], 404);
         }
 
+        
         $user->update( $request->all());
 
         return response()->json([
@@ -78,6 +81,7 @@ class UserController extends Controller
             'data' => $user
         ]);
     }
+
 
     /**
      * Remove the specified resource from storage.
