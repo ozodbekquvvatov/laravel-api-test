@@ -34,9 +34,9 @@ class UserController extends Controller
             'password'=> bcrypt($request->password),
         ]);
         return response()->json([
-            'status' => 200,
+            'status' => 201,
             'data' => $user,
-        ], 200);
+        ],201);
     }
 
     /**
@@ -85,7 +85,7 @@ class UserController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
+     * Remo ve the specified resource from storage.
      */
     public function destroy(string $id)
     {
