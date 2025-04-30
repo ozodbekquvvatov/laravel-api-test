@@ -21,9 +21,9 @@ class PostController extends Controller
         $post = Post::create($request->validated());
 
         return response()->json([
-            'status' => 200,
+            'status' => 201,
             'data' => $post,
-        ], 200);
+        ], 201);
     }
 
     public function show($id)
@@ -46,10 +46,6 @@ class PostController extends Controller
     public function update(PostUpdateRequest $request, $id)
     {
         
-        // $request->validate([
-        //     'title' => 'required|string',
-        //     'body' => 'required|string',
-        // ]); 
     
         $post = Post::find($id);
         if (!$post) {
