@@ -2,8 +2,9 @@
 namespace App\Http\Controllers; 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\PostStoreRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostUpdateRequest;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(StorePostRequest $request)
+    public function store(PostStoreRequest $request)
     {
         $post = Post::create($request->validated());
 
@@ -42,7 +43,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
         
         // $request->validate([
@@ -65,6 +66,8 @@ class PostController extends Controller
         ]);
     }
     
+
+
 
     public function destroy($id)
     {
