@@ -58,6 +58,8 @@ class PostController extends Controller
                 'message' => 'Post topilmadi' 
             ], 404);
         }
+
+        
         
         $post->update($request->only('title', 'body','user_id'));
         return response()->json([
