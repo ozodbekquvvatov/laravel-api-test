@@ -73,7 +73,7 @@ class UserController extends Controller
             ], 404);
         }
 
-        
+
         $user->update( $request->all());
 
         return response()->json([
@@ -81,6 +81,7 @@ class UserController extends Controller
             'data' => $user
         ]);
     }
+    
 
 
     /**
